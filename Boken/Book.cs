@@ -2,19 +2,32 @@ namespace Boken;
 
 public class Book
 {
-    public string title { get; set; }
-    public string author { get; set; }
-    public int pages { get; set; }
+    // Class properties
+    public string Title { get; set; }
+    public string Author { get; set; }
+    public int Pages { get; set; }
+    public bool IsLong => Pages > 300; 
+    
 
+    // Class methods
     public void Describe()
     {
-        Console.WriteLine(this.title + " av " + this.author + ", " + this.pages + " sidor");
+        if (IsLong == true)
+        {
+            Console.WriteLine(this.Title + " av " + this.Author + ", " + this.Pages + " sidor (lång bok).");    
+        }
+        else
+        {
+            Console.WriteLine(this.Title + " av " + this.Author + ", " + this.Pages + " sidor.");
+        }
+        
     }
 
+    // Class constructor
     public Book(string bookTitle, string bookAuthor, int bookPages)
     {
-        title = bookTitle;
-        author = bookAuthor;
-        pages = bookPages;
+        Title = bookTitle;
+        Author = bookAuthor;
+        Pages = bookPages;
     }
 }
